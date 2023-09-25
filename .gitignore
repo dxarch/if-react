@@ -2,8 +2,10 @@
 
 # dependencies
 /node_modules
+/.husky
 /.pnp
 .pnp.js
+.prettierrc
 
 # testing
 /coverage

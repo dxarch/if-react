@@ -1,0 +1,17 @@
+.arrow__icon {
+    margin: auto;
+    width: 10px;
+    height: 20px;
+}
+
+.arrow__icon--calendar {
+    height: 15px;
+}
+
+
+@media (max-width: 800px) {
+    .arrow__icon {
+        width: 5px;
+        height: 15px;
+    }
+}

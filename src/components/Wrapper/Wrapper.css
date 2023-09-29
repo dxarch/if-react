@@ -1,0 +1,22 @@
+.wrapper {
+    max-width: 1232px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 120px 0;
+}
+
+@media (max-width: 1265px) {
+    .wrapper {
+        padding: 40px 16px;
+    }
+}
+
+@media (max-width: 800px) {
+    .wrapper {
+        padding: 40px 16px;
+        max-width: 688px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+

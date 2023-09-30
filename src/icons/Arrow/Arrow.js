@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import './Arrow.css';
+import './Arrow.css'
 
 export const Arrow = ({ className }) => (
   <svg className={className}>

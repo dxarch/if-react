@@ -4,10 +4,9 @@ import './App.css'
 import '../../assets/css/fonts.css'
 import '../../assets/css/reset.css'
 
-import { Heading, Wrapper, Gallery, Card, Sprite } from '../index';
+import { Heading, Wrapper, Gallery, Card, Sprite } from '../index'
 
 import { homes } from '../../configs/homes'
-
 
 export const App = () => {
   return (

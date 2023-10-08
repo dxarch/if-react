@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from 'react'
 
 import './InputContent.css'
 import classNames from 'classnames'
@@ -10,28 +10,27 @@ export const InputContent = ({
   variant,
   isReadOnly,
 }) => {
-
   const handleChange = (e) => {
-    const target = e.currentTarget;
+    const target = e.currentTarget
     setValue({
       ...value,
-      [target.id]: target.value
+      [target.id]: target.value,
     })
   }
 
-  useEffect(() => console.log(value));
+  useEffect(() => console.log(value))
 
   const [value, setValue] = useState({
-    'city': 'New York',
-    'date': {
+    city: 'New York',
+    date: {
       'check-in': 'Check-in',
       'check-out': 'Check-out',
     },
-    'guests': {
-      'adults': 1,
-      'children': 0,
-      'rooms': 1
-    }
+    guests: {
+      adults: 1,
+      children: 0,
+      rooms: 1,
+    },
   })
 
   const variants = {
@@ -54,7 +53,7 @@ export const InputContent = ({
     )
   }
 
-  const stateEntries = Object.entries(value[contentType]);
+  const stateEntries = Object.entries(value[contentType])
 
   return (
     <>
@@ -73,7 +72,10 @@ export const InputContent = ({
             {variant ? (
               <label
                 htmlFor={itemName}
-                className={classNames('label__booking', contentType !== 'guests' ? '--hidden' : null)}
+                className={classNames(
+                  'label__booking',
+                  contentType !== 'guests' ? '--hidden' : null
+                )}
               >
                 {itemName.replace(/^./, itemName[0].toUpperCase())}
               </label>
@@ -81,7 +83,9 @@ export const InputContent = ({
             <input
               className={classNames(
                 'booking__input',
-                `booking__input--${contentType === 'guests' ? 'guests' : itemName}`
+                `booking__input--${
+                  contentType === 'guests' ? 'guests' : itemName
+                }`
               )}
               id={itemName}
               value={itemValue}

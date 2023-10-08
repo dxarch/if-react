@@ -7,8 +7,8 @@ export * from './Sprite'
 export * from './Card'
 export * from './NavBar'
 export * from './UList'
-export * from './MainHeading';
-export * from './BookingForm';
-export * from './FormInput';
-export * from './InputContent';
-export * from './Downloads';
+export * from './MainHeading'
+export * from './BookingForm'
+export * from './FormInput'
+export * from './InputContent'
+export * from './Downloads'

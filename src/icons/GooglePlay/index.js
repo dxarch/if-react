@@ -1,1 +1,1 @@
-export * from './GooglePlay';
+export * from './GooglePlay'

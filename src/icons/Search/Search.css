@@ -1,12 +1,14 @@
-.icon__search {
+.--hidden {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .icon__search {
     position: absolute;
     top: 16px;
     left: 12px;
     display: block;
     width: 16px;
     height: 16px;
-}
-
-.--hidden {
-    display: none;
+  }
 }

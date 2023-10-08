@@ -1,62 +1,61 @@
 .booking__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 16px;
-    border-radius: 8px;
-    gap: calc(var(--gap-sm) / 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  border-radius: 8px;
+  gap: calc(var(--gap-sm) / 2);
 }
 
 .booking__city {
-    padding-left: 22px;
+  padding-left: 22px;
 }
 
 .booking__dates {
-    position: relative;
-    border: 1px solid var(--inactive);
+  position: relative;
+  border: 1px solid var(--inactive);
 }
 
 .booking__guests {
-    position: relative;
-    flex-grow: 1;
-    padding-right: 15px;
-    padding-left: 15px;
+  position: relative;
+  flex-grow: 1;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-
 @media (max-width: 800px) {
-    .booking__wrap {
-        padding: 0;
-        width: 100%;
-        background-color: var(--white);
-        border: none;
-        border-radius: 8px;
-    }
+  .booking__wrap {
+    padding: 0;
+    width: 100%;
+    background-color: var(--white);
+    border: none;
+    border-radius: 8px;
+  }
 
-    .booking__wrap:focus-within {
-        border: none;
-    }
+  .booking__wrap:focus-within {
+    border: none;
+  }
 
-    .booking__dates {
-        width: 100%;
-        gap: var(--gap-sm);
-        background-color: unset;
-        grid-row: 2;
-        grid-column: span 6;
-    }
+  .booking__dates {
+    width: 100%;
+    gap: var(--gap-sm);
+    background-color: unset;
+    grid-row: 2;
+    grid-column: span 6;
+  }
 
-    .booking__guests {
-        grid-row: 3;
-        grid-column: span 6;
-    }
+  .booking__guests {
+    grid-row: 3;
+    grid-column: span 6;
+  }
 
-    .booking__city {
-        position: relative;
-        grid-row: 1;
-        grid-column: span 6;
-    }
+  .booking__city {
+    position: relative;
+    grid-row: 1;
+    grid-column: span 6;
+  }
 }
 
 .focused {
-    border: 3px solid var(--accent-yellow);
+  border: 3px solid var(--accent-yellow);
 }

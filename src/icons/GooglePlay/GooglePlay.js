@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import './GooglePlay.css';
+import './GooglePlay.css'
 export const GooglePlay = ({ className }) => (
   <svg className={className}>
-    <use href="#google-play"/>
+    <use href="#google-play" />
   </svg>
 )

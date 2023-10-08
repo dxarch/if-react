@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import './Search.css';
+import './Search.css'
 
 export const Search = ({ className }) => (
   <svg className={className}>
-    <use href="#search"/>
+    <use href="#search" />
   </svg>
 )

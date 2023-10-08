@@ -13,9 +13,12 @@ export const links = [
 
 export const icons = [
   {
-    iconType: 'theme'
+    iconType: 'theme',
   },
   {
-    iconType: 'account'
+    iconType: 'account',
+  },
+  {
+    iconType: 'burger'
   }
-];
+]

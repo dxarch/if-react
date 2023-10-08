@@ -12,11 +12,13 @@ import {
   Sprite,
   NavBar,
   MainHeading,
-  BookingForm, Downloads, Button
-} from "../index";
+  BookingForm,
+  Downloads,
+  Button,
+} from '../index'
 
 import { homes } from '../../configs/homes'
-import { AppStore, GooglePlay } from "../../icons";
+import { AppStore, GooglePlay } from '../../icons'
 
 export const App = () => {
   return (
@@ -34,10 +36,10 @@ export const App = () => {
               <BookingForm />
               <Downloads className="download">
                 <Button className="download__link" href="#" target="_blank">
-                  <GooglePlay className="icon__google-play"/>
+                  <GooglePlay className="icon__google-play" />
                 </Button>
                 <Button className="download__link" href="#" target="_blank">
-                  <AppStore className="icon__app-store"/>
+                  <AppStore className="icon__app-store" />
                 </Button>
               </Downloads>
             </div>

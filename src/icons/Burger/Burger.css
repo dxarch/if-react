@@ -1,0 +1,7 @@
+@media (max-width: 800px) {
+    .nav__icon--burger {
+        display: revert;
+        width: 24px;
+        height: 16px;
+    }
+}

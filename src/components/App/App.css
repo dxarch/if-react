@@ -161,3 +161,19 @@ body {
   order: 3;
   background-color: var(--bg-main);
 }
+
+.top {
+  order: 1;
+  background-image: url(../../assets/images/background-castle.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+}
+
+.dash {
+  cursor: pointer;
+}
+
+.--hidden {
+  display: none;
+}

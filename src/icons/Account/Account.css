@@ -1,0 +1,11 @@
+.nav__icon--account {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 800px) {
+    .nav__icon--account {
+        width: 24px;
+        height: 24px;
+    }
+}

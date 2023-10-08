@@ -1,0 +1,15 @@
+.icon__logo {
+    width: 205px;
+    height: 40px;
+}
+
+.icon__logo--blue {
+    fill: #3077c6;
+}
+
+@media (max-width: 800px) {
+    .icon__logo {
+        width: 120px;
+        height: 24px;
+    }
+}

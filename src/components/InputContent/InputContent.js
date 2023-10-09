@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 
 import './InputContent.css'
 import classNames from 'classnames'
@@ -9,29 +9,9 @@ export const InputContent = ({
   contentType,
   variant,
   isReadOnly,
+  inputState,
+  onChange
 }) => {
-  const handleChange = (e) => {
-    const target = e.currentTarget
-    setValue({
-      ...value,
-      [target.id]: target.value,
-    })
-  }
-
-  useEffect(() => console.log(value))
-
-  const [value, setValue] = useState({
-    city: 'New York',
-    date: {
-      'check-in': 'Check-in',
-      'check-out': 'Check-out',
-    },
-    guests: {
-      adults: 1,
-      children: 0,
-      rooms: 1,
-    },
-  })
 
   const variants = {
     'label__wrap--vertical-line': variant?.includes('vertical'),
@@ -46,14 +26,14 @@ export const InputContent = ({
           `booking__input--${contentType}`
         )}
         id={contentType}
-        value={value.city}
+        value={inputState}
         readOnly={isReadOnly}
-        onChange={!isReadOnly ? handleChange : null}
+        onChange={!isReadOnly ? onChange : null}
       />
     )
   }
 
-  const stateEntries = Object.entries(value[contentType])
+  const stateEntries = Object.entries(inputState)
 
   return (
     <>
@@ -69,7 +49,7 @@ export const InputContent = ({
             )}
           >
             {children}
-            {variant ? (
+            {variant && (
               <label
                 htmlFor={itemName}
                 className={classNames(
@@ -79,7 +59,7 @@ export const InputContent = ({
               >
                 {itemName.replace(/^./, itemName[0].toUpperCase())}
               </label>
-            ) : null}
+            )}
             <input
               className={classNames(
                 'booking__input',
@@ -90,7 +70,7 @@ export const InputContent = ({
               id={itemName}
               value={itemValue}
               readOnly={isReadOnly}
-              onChange={!isReadOnly ? handleChange : null}
+              onChange={!isReadOnly ? onChange : null}
             />
           </div>
           {idx !== stateEntries.length - 1 ? (

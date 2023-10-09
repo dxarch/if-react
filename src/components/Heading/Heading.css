@@ -16,6 +16,10 @@
   .heading--homes {
     margin-bottom: 60px;
   }
+
+  .heading--hotels {
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 800px) {

@@ -22,7 +22,7 @@ export const FormInput = ({ className, inputType, children }) => {
         'booking__wrap',
         { ...inputTypes },
         className,
-        isFocused ? 'focused' : ''
+        isFocused && 'focused'
       )}
       onClick={handleClick}
     >

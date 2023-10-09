@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import { Account, Burger, Theme } from "../../icons";
+import { Account, Burger, Theme } from '../../icons'
 
 import './UList.css'
 
@@ -22,7 +22,7 @@ const renderItem = (item, linkType, iconType) => {
   )
   iconTypes.set(
     iconType === 'burger',
-    <Burger className="nav__icon nav__icon--burger --hidden"/>
+    <Burger className="nav__icon nav__icon--burger --hidden" />
   )
 
   if (linkType) {

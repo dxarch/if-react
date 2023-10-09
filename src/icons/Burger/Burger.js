@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import './Burger.css';
+import './Burger.css'
 
-export const Burger = ({className}) => (
+export const Burger = ({ className }) => (
   <svg className={className}>
     <use href="#burger" />
   </svg>
-);
+)

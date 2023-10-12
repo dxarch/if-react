@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 import './BookingForm.css'
 import { formLabels } from './config'
 import { Button, FormInput, InputContent } from '../index'
 import { Search } from '../../icons'
 
-export const BookingForm = ({onSearchClick}) => {
+export const BookingForm = ({ onSearchClick }) => {
   const handleInputChange = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const target = e.currentTarget
     setValue({
       ...value,
@@ -15,7 +15,7 @@ export const BookingForm = ({onSearchClick}) => {
     })
   }
   const handleSearchSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     onSearchClick(value.city)
   }
 
@@ -70,7 +70,9 @@ export const BookingForm = ({onSearchClick}) => {
             onChange={handleInputChange}
           />
         </FormInput>
-        <Button className="booking__button col-lg-2 col-md-2" type="submit">Search</Button>
+        <Button className="booking__button col-lg-2 col-md-2" type="submit">
+          Search
+        </Button>
       </form>
     </>
   )

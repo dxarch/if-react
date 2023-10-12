@@ -6,5 +6,5 @@ export const downloadLinks = [
   {
     type: 'app-store',
     href: '#',
-  }
+  },
 ]

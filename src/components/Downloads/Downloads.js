@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react'
 
 import './Downloads.css'
-import { downloadLinks } from "./config";
-import { Button } from "../Button";
-import { AppStore, GooglePlay } from "../../icons";
+import { downloadLinks } from './config'
+import { Button } from '../Button'
+import { AppStore, GooglePlay } from '../../icons'
 
 export const Downloads = ({ className }) => {
   const renderIcon = (iconType) => {

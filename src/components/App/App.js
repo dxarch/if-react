@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from 'react'
 
 import './App.css'
 import '../../assets/css/fonts.css'
@@ -10,36 +10,44 @@ import {
   Sprite,
   BookingForm,
   Downloads,
-  Section
-} from "../index";
+  Section,
+} from '../index'
 
-
-import { availableHotels, homes } from "./config";
+import { availableHotels, homes } from './config'
 
 export const App = () => {
-  const [searchResults, setSearchResults] = useState();
+  const [searchResults, setSearchResults] = useState()
 
   const filterHotels = (query) => {
-    const results = availableHotels.filter(({name, city, country}) =>
-      name.toLowerCase().includes(query) || city.toLowerCase().includes(query) || country.toLowerCase().includes(query)
+    const results = availableHotels.filter(
+      ({ name, city, country }) =>
+        name.toLowerCase().includes(query) ||
+        city.toLowerCase().includes(query) ||
+        country.toLowerCase().includes(query)
     )
-    setSearchResults(results);
+    setSearchResults(results)
   }
 
   return (
     <>
       <Sprite />
-      <Section className="top" type="header" headingText={['Discover stays', 'to live, work or just relax']}>
+      <Section
+        className="top"
+        type="header"
+        headingText={['Discover stays', 'to live, work or just relax']}
+      >
         <div className="booking__block">
-          <BookingForm onSearchClick={filterHotels}/>
+          <BookingForm onSearchClick={filterHotels} />
           <Downloads className="download" />
         </div>
       </Section>
       {searchResults && (
         <Section className="hotels" headingText="Available hotels">
-          <p className="hotels__results">Hotels found: {searchResults.length}</p>
+          <p className="hotels__results">
+            Hotels found: {searchResults.length}
+          </p>
           <Gallery carouselName="slides__carousel--homes">
-            { searchResults.map((data) => (
+            {searchResults.map((data) => (
               <Fragment key={data.id}>
                 <Card itemType="homes" {...data} />
               </Fragment>

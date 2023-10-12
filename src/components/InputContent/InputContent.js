@@ -10,9 +10,8 @@ export const InputContent = ({
   variant,
   isReadOnly,
   inputState,
-  onChange
+  onChange,
 }) => {
-
   const variants = {
     'label__wrap--vertical-line': variant?.includes('vertical'),
     'label__wrap--two-level': variant?.includes('leveled'),

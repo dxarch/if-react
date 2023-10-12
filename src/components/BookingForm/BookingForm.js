@@ -1,24 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 import './BookingForm.css'
 import { formLabels } from './config'
 import { Button, FormInput, InputContent } from '../index'
 import { Search } from '../../icons'
 
-export const BookingForm = ({onSearchClick}) => {
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    const target = e.currentTarget
-    setValue({
-      ...value,
-      [target.id]: target.value,
-    })
-  }
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    onSearchClick(value.city)
-  }
-
+export const BookingForm = ({ onSearchClick }) => {
   const [value, setValue] = useState({
     city: 'New York',
     date: {
@@ -32,6 +19,24 @@ export const BookingForm = ({onSearchClick}) => {
     },
   })
 
+  const [focusedInput, setFocusedInput] = useState(null)
+  const handleInputChange = (e) => {
+    e.preventDefault()
+    const target = e.currentTarget
+    setValue({
+      ...value,
+      [target.id]: target.value,
+    })
+  }
+
+  const handleInputFocus = (id) => {
+    setFocusedInput(id)
+  }
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+    onSearchClick(value.city)
+  }
+
   return (
     <>
       <div className="booking__labels">
@@ -42,7 +47,12 @@ export const BookingForm = ({onSearchClick}) => {
         ))}
       </div>
       <form action="/" className="booking__form" onSubmit={handleSearchSubmit}>
-        <FormInput className="booking__item col-lg-4 col-md-4" inputType="city">
+        <FormInput
+          className="booking__item col-lg-4 col-md-4"
+          inputType="city"
+          onSelect={handleInputFocus}
+          isFocused={focusedInput === 'city'}
+        >
           <Search className="icon__search --hidden" />
           <InputContent
             className="booking__wrap booking__city col-lg-4 col-md-4"
@@ -52,7 +62,12 @@ export const BookingForm = ({onSearchClick}) => {
             onChange={handleInputChange}
           />
         </FormInput>
-        <FormInput className="col-lg-3 col-md-3" inputType="dates">
+        <FormInput
+          className="col-lg-3 col-md-3"
+          inputType="dates"
+          onSelect={handleInputFocus}
+          isFocused={focusedInput === 'dates'}
+        >
           <InputContent
             contentType="date"
             isReadOnly={true}
@@ -61,7 +76,12 @@ export const BookingForm = ({onSearchClick}) => {
             onChange={handleInputChange}
           />
         </FormInput>
-        <FormInput className="col-lg-3 col-md-3" inputType="guests">
+        <FormInput
+          className="col-lg-3 col-md-3"
+          inputType="guests"
+          onSelect={handleInputFocus}
+          isFocused={focusedInput === 'guests'}
+        >
           <InputContent
             contentType="guests"
             isReadOnly={true}
@@ -70,7 +90,9 @@ export const BookingForm = ({onSearchClick}) => {
             onChange={handleInputChange}
           />
         </FormInput>
-        <Button className="booking__button col-lg-2 col-md-2" type="submit">Search</Button>
+        <Button className="booking__button col-lg-2 col-md-2" type="submit">
+          Search
+        </Button>
       </form>
     </>
   )

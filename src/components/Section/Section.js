@@ -21,16 +21,15 @@ export const Section = forwardRef(
         </header>
       )
     }
+  return (
+    <section className={className}>
+      <Wrapper className={classNames(`wrapper--${className}`)}>
+        <Heading className={classNames(`heading--${className}`)}>
+          {headingText}
+        </Heading>
+        {children}
+      </Wrapper>
+    </section>
+  )
+});
 
-    return (
-      <section className={className} ref={className === 'hotels' ? ref : null}>
-        <Wrapper className={classNames(`wrapper--${className}`)}>
-          <Heading className={classNames(`heading--${className}`)}>
-            {headingText}
-          </Heading>
-          {children}
-        </Wrapper>
-      </section>
-    )
-  }
-)

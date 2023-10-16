@@ -1,0 +1,25 @@
+.homes {
+  order: 3;
+  background-color: var(--bg-main);
+}
+
+.top {
+  order: 1;
+  background-image: url(../../assets/images/background-castle.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+}
+
+.hotels {
+  order: 2;
+  background-color: var(--bg-main);
+}
+
+.hotels__results {
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 10px;
+}

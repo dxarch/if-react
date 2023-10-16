@@ -1,0 +1,6 @@
+.download {
+  display: flex;
+  gap: var(--gap-lg);
+  margin: 0 auto;
+  width: fit-content;
+}

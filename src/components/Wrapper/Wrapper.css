@@ -5,6 +5,10 @@
   padding: 120px 0;
 }
 
+.wrapper--top {
+  padding-top: 50px;
+}
+
 @media (max-width: 1265px) {
   .wrapper {
     padding: 40px 16px;
@@ -17,5 +21,9 @@
     max-width: 688px;
     width: 100%;
     margin: 0 auto;
+  }
+
+  .wrapper--top {
+    padding-bottom: 40px;
   }
 }

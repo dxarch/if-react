@@ -1,0 +1,11 @@
+.nav__icon--night {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 800px) {
+  .nav__icon--night {
+    width: 16px;
+    height: 16px;
+  }
+}

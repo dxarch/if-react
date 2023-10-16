@@ -8,6 +8,7 @@
 .pnp.js
 .prettierrc
 .eslintrc.json
+/.idea
 
 # testing
 /coverage

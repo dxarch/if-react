@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 
 import './FormInput.css'
 
-export const FormInput = ({ className, inputType, children }) => {
-  const [isFocused, setIsFocused] = useState(false)
-  const handleClick = (e) => {
-    e.preventDefault()
-    setIsFocused((current) => !current)
-  }
-
+export const FormInput = ({
+  className,
+  inputType,
+  onSelect,
+  isFocused,
+  children,
+}) => {
   const inputTypes = {
     booking__city: inputType === 'city',
     booking__dates: inputType === 'dates',
     booking__guests: inputType === 'guests',
+  }
+
+  const handleSelect = () => {
+    onSelect(inputType)
   }
 
   return (
@@ -24,7 +28,7 @@ export const FormInput = ({ className, inputType, children }) => {
         className,
         isFocused && 'focused'
       )}
-      onClick={handleClick}
+      onClick={handleSelect}
     >
       {children}
     </div>

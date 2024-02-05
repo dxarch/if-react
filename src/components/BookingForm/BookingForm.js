@@ -4,8 +4,10 @@ import './BookingForm.css'
 import { formLabels } from './config'
 import { Button, FormInput, InputContent } from '../index'
 import { Search } from '../../icons'
+import { useHotelsSearch } from '../../hooks/useHotelsSearch'
+import { useSearchContext } from '../../contexts/Search.context'
 
-export const BookingForm = ({ onSearchClick }) => {
+export const BookingForm = () => {
   const [value, setValue] = useState({
     city: 'New York',
     date: {
@@ -20,6 +22,9 @@ export const BookingForm = ({ onSearchClick }) => {
   })
 
   const [focusedInput, setFocusedInput] = useState(null)
+  const { searchHotels } = useHotelsSearch()
+  const { setSearchResults } = useSearchContext()
+
   const handleInputChange = (e) => {
     e.preventDefault()
     const target = e.currentTarget
@@ -34,7 +39,7 @@ export const BookingForm = ({ onSearchClick }) => {
   }
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    onSearchClick(value.city)
+    searchHotels(value.city).then((result) => setSearchResults(result))
   }
 
   return (

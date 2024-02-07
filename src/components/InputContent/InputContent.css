@@ -14,8 +14,9 @@
   width: 100%;
 }
 
-.booking__input--check-in {
-  width: 7ch;
+.booking__input--check-in,
+.booking__input--check-out {
+  text-align: center;
 }
 
 .booking__input--guests {

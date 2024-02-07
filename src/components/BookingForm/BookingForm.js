@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import './BookingForm.css'
 import { formLabels } from './config'
 import { Button, FormInput, InputContent } from '../index'
 import { Search } from '../../icons'
-import { useHotelsSearch } from '../../hooks/useHotelsSearch'
-import { useSearchContext } from '../../contexts/Search.context'
+import { useHotelsSearch } from '../../hooks'
+import { useSearchContext } from '../../contexts'
+
+import { DayPicker } from 'react-day-picker'
+import { format } from 'date-fns'
+import 'react-day-picker/dist/style.css'
+import './DayPicker.css'
 
 export const BookingForm = () => {
   const [value, setValue] = useState({
@@ -20,10 +25,32 @@ export const BookingForm = () => {
       rooms: 1,
     },
   })
-
+  const [range, setRange] = useState()
   const [focusedInput, setFocusedInput] = useState(null)
   const { searchHotels } = useHotelsSearch()
   const { setSearchResults } = useSearchContext()
+
+  useEffect(() => {
+    if (range?.from) {
+      const from = format(range?.from, 'dd.MM.yyyy')
+      let to
+      if (!range.to) {
+        to = 'Check-out'
+      } else {
+        to = format(range?.to, 'dd.MM.yyyy')
+      }
+
+      const date = {
+        'check-in': from,
+        'check-out': to,
+      }
+
+      setValue({
+        ...value,
+        date,
+      })
+    }
+  }, [range])
 
   const handleInputChange = (e) => {
     e.preventDefault()
@@ -37,6 +64,7 @@ export const BookingForm = () => {
   const handleInputFocus = (id) => {
     setFocusedInput(id)
   }
+
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     searchHotels(value.city).then((result) => setSearchResults(result))
@@ -79,6 +107,15 @@ export const BookingForm = () => {
             variant="leveled"
             inputState={value.date}
             onChange={handleInputChange}
+          />
+          <DayPicker
+            id="calendar"
+            numberOfMonths={2}
+            weekStartsOn={1}
+            fromDate={new Date()}
+            mode="range"
+            selected={range}
+            onSelect={setRange}
           />
         </FormInput>
         <FormInput

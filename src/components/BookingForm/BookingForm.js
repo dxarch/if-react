@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import './BookingForm.css'
 import { formLabels } from './config'
 import { Button, FormInput, InputContent } from '../index'
 import { Search } from '../../icons'
+import { useHotelsSearch } from '../../hooks'
+import { useSearchContext } from '../../contexts'
 
-export const BookingForm = ({ onSearchClick }) => {
+import { DayPicker } from 'react-day-picker'
+import { format } from 'date-fns'
+import 'react-day-picker/dist/style.css'
+import './DayPicker.css'
+
+export const BookingForm = () => {
   const [value, setValue] = useState({
     city: 'New York',
     date: {
@@ -18,8 +25,33 @@ export const BookingForm = ({ onSearchClick }) => {
       rooms: 1,
     },
   })
-
+  const [range, setRange] = useState()
   const [focusedInput, setFocusedInput] = useState(null)
+  const { searchHotels } = useHotelsSearch()
+  const { setSearchResults } = useSearchContext()
+
+  useEffect(() => {
+    if (range?.from) {
+      const from = format(range?.from, 'dd.MM.yyyy')
+      let to
+      if (!range.to) {
+        to = 'Check-out'
+      } else {
+        to = format(range?.to, 'dd.MM.yyyy')
+      }
+
+      const date = {
+        'check-in': from,
+        'check-out': to,
+      }
+
+      setValue({
+        ...value,
+        date,
+      })
+    }
+  }, [range])
+
   const handleInputChange = (e) => {
     e.preventDefault()
     const target = e.currentTarget
@@ -32,9 +64,10 @@ export const BookingForm = ({ onSearchClick }) => {
   const handleInputFocus = (id) => {
     setFocusedInput(id)
   }
+
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    onSearchClick(value.city)
+    searchHotels(value.city).then((result) => setSearchResults(result))
   }
 
   return (
@@ -75,6 +108,17 @@ export const BookingForm = ({ onSearchClick }) => {
             inputState={value.date}
             onChange={handleInputChange}
           />
+          {focusedInput === 'dates' && (
+            <DayPicker
+              id="calendar"
+              numberOfMonths={2}
+              weekStartsOn={1}
+              fromDate={new Date()}
+              mode="range"
+              selected={range}
+              onSelect={setRange}
+            />
+          )}
         </FormInput>
         <FormInput
           className="col-lg-3 col-md-3"

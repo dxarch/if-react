@@ -108,15 +108,17 @@ export const BookingForm = () => {
             inputState={value.date}
             onChange={handleInputChange}
           />
-          <DayPicker
-            id="calendar"
-            numberOfMonths={2}
-            weekStartsOn={1}
-            fromDate={new Date()}
-            mode="range"
-            selected={range}
-            onSelect={setRange}
-          />
+          {focusedInput === 'dates' && (
+            <DayPicker
+              id="calendar"
+              numberOfMonths={2}
+              weekStartsOn={1}
+              fromDate={new Date()}
+              mode="range"
+              selected={range}
+              onSelect={setRange}
+            />
+          )}
         </FormInput>
         <FormInput
           className="col-lg-3 col-md-3"
